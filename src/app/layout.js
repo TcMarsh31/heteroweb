@@ -20,14 +20,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        <main className="min-h-screen w-full">
-          {/* Top Navigation */}
+        <main className="min-h-screen w-full overflow-x-hidden">
           <Navbar />
-
           {children}
         </main>
       </body>

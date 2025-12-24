@@ -5,10 +5,7 @@ import Hero from "@/components/Hero";
 
 export default function App() {
   return (
-    <main className="min-h-screen w-full">
-      {/* Top Navigation */}
-      <Navbar />
-
+    <>
       {/* Hero Section */}
       <Hero />
 
@@ -24,6 +21,6 @@ export default function App() {
           remaining essentially unchanged.
         </p>
       </section>
-    </main>
+    </>
   );
 }

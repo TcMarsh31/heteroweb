@@ -1,5 +1,6 @@
 import React from "react";
 import Iridescence from "./Iridescence";
+import TextType from "./TextType";
 
 function Hero() {
   return (
@@ -17,9 +18,9 @@ function Hero() {
       {/* CONTENT */}
       <div className="relative z-10 flex h-full items-center px-20">
         <div className="mx-auto w-full max-w-7xl px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
+              <h1 className="text-4xl text-center md:text-left md:text-6xl font-bold leading-tight text-white">
                 Trusted <br />
                 Technology <br />
                 Partner
@@ -27,12 +28,20 @@ function Hero() {
             </div>
 
             <div>
-              <p className="text-lg md:text-xl text-white/80 max-w-xl">
-                Design and build your product with a team specializing in
+              {/* <p className="text-lg md:text-xl text-white/80 max-w-xl"> */}
+              {/* Design and build your product with a team specializing in
                 <span className="ml-2 font-semibold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
                   Flutter, .NET and React
-                </span>
-              </p>
+                </span> */}
+              <TextType
+                text={["we transform ideas into software products"]}
+                typingSpeed={75}
+                pauseDuration={1500}
+                className="text-md md:text-3xl text-white/80"
+                showCursor={true}
+                cursorCharacter="|"
+              />
+              {/* </p> */}
             </div>
           </div>
         </div>

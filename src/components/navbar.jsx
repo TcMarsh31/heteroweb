@@ -50,7 +50,20 @@ export default function Navbar() {
       duration: 0.25,
 
       duration: 0.25,
-      ease: "expo.inOut",
+      ease: "power3.inOut",
+    });
+
+    // Dropdown / menu background
+    gsap.to(dropdownRef.current, {
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top -550px",
+        toggleActions: "play reverse play reverse",
+      },
+      backgroundColor: "#fff",
+      borderColor: "rgba(0,0,0,0.08)",
+      duration: 0.25,
+      ease: "power2.out",
     });
   }, []);
 

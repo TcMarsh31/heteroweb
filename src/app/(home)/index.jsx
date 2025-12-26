@@ -4,6 +4,7 @@ import SpotlightCard from "@/components/SpotlightCard";
 import React from "react";
 import Services from "./services";
 import FeaturedProjectsSection from "./featuredProjects";
+import AboutUsSection from "./aboutUs";
 
 function Home() {
   return (
@@ -14,6 +15,8 @@ function Home() {
       <Services />
       {/* Featured Projects Section */}
       <FeaturedProjectsSection />
+      {/* About Us Section */}
+      <AboutUsSection />
     </>
   );
 }

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import SpotlightCard from "@/components/SpotlightCard";
 import React from "react";
 import Services from "./services";
+import FeaturedProjectsSection from "./featuredProjects";
 
 function Home() {
   return (
@@ -11,7 +12,8 @@ function Home() {
       <Hero />
       {/* Services Page */}
       <Services />
-      jfewjlekjflkerj efenrenef referjffe fvnvndf
+      {/* Featured Projects Section */}
+      <FeaturedProjectsSection />
     </>
   );
 }

@@ -139,6 +139,9 @@ export default function Navbar() {
           <Link href="#projects" className="font-medium">
             Projects
           </Link>
+          <Link href="#projects" className="font-medium">
+            Blog
+          </Link>
         </nav>
 
         {/* Right */}

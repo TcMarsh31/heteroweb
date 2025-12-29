@@ -5,6 +5,8 @@ import React from "react";
 import Services from "./services";
 import FeaturedProjectsSection from "./featuredProjects";
 import AboutUsSection from "./aboutUs";
+import Inquiry from "./inquiry";
+import BlogPage from "./blog";
 
 function Home() {
   return (
@@ -17,6 +19,10 @@ function Home() {
       <FeaturedProjectsSection />
       {/* About Us Section */}
       <AboutUsSection />
+      {/* Inquiry Section */}
+      <Inquiry />
+      {/* Blog Page Section */}
+      <BlogPage />
     </>
   );
 }

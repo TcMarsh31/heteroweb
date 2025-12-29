@@ -136,10 +136,10 @@ export default function Navbar() {
           <Link href="#services" className="font-medium">
             Services
           </Link>
-          <Link href="#projects" className="font-medium">
+          <Link href="/projects" className="font-medium">
             Projects
           </Link>
-          <Link href="#projects" className="font-medium">
+          <Link href="/blog" className="font-medium">
             Blog
           </Link>
         </nav>

@@ -47,18 +47,6 @@ export default function BlogLayout() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header Section */}
-      <header className="mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-          The ultimate source of technology news
-        </h1>
-        <p className="text-gray-600 max-w-2xl">
-          We explore web and mobile technologies, product development and
-          design, and the latest news from the tech industry. Get into the
-          mobitouch mindset.
-        </p>
-      </header>
-
       {/* Featured Posts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {/* Card 1: Application Testing */}

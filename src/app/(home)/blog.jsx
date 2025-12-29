@@ -39,7 +39,10 @@ export default function BlogPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-extrabold mb-4">
+      <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+        Blogs
+      </p>
+      <h1 className="mt-2 text-4xl font-extrabold mb-4">
         Gain some useful knowledge
       </h1>
       <p className="text-right text-sm text-blue-600 mb-8 cursor-pointer">

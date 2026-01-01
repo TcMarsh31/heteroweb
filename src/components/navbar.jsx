@@ -10,21 +10,15 @@ import { ChevronDown } from "lucide-react";
 const servicesMenu = [
   {
     title: "MOBILE APP DEVELOPMENT",
-    items: [
-      "FLUTTER APP DEVELOPMENT (IOS & ANDROID)",
-      "AUGMENTED REALITY APP",
-      "RADIO APP",
-    ],
+    items: [".NET MAUI", "REACT NATIVE APP"],
   },
   {
-    title: "WEB APP DEVELOPMENT",
-    items: [
-      "FRONT-END DEVELOPMENT",
-      "BACK-END DEVELOPMENT",
-      ".NET",
-      "REACT.JS",
-      "PROGRESSIVE WEB APPS",
-    ],
+    title: "FRONT-END DEVELOPMENT",
+    items: ["REACT.JS", "ANGULAR", "HTML 5 & CSS 3", "JAVASCRIPT"],
+  },
+  {
+    title: "BACK-END DEVELOPMENT",
+    items: ["C#", "NODEJS", "NEXTJS"],
   },
 ];
 

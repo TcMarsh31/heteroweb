@@ -4,32 +4,85 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "@/lib/gsap";
 import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+
+// Define the structure for the services menu
+const servicesMenu = [
+  {
+    title: "MOBILE APP DEVELOPMENT",
+    items: [
+      "FLUTTER APP DEVELOPMENT (IOS & ANDROID)",
+      "AUGMENTED REALITY APP",
+      "RADIO APP",
+    ],
+  },
+  {
+    title: "WEB APP DEVELOPMENT",
+    items: [
+      "FRONT-END DEVELOPMENT",
+      "BACK-END DEVELOPMENT",
+      ".NET",
+      "REACT.JS",
+      "PROGRESSIVE WEB APPS",
+    ],
+  },
+  {
+    title: "OUTSOURCING IT",
+    items: ["FLUTTER OUTSOURCING", ".NET OUTSOURCING", "REACT.JS OUTSOURCING"],
+  },
+  {
+    title: "AI SOLUTIONS",
+    items: [],
+  },
+];
+
+const designAndWorkshops = [
+  "PROJECT START WORKSHOPS",
+  "GRAPHIC DESIGN",
+  "PRODUCT DESIGN WORKSHOPS",
+  "MVP DEVELOPMENT",
+];
+
+const aboutUsItems = ["Who we are", "Crew", "Reviews"];
 
 export default function Navbar() {
   const navRef = useRef(null);
-  const dropdownRef = useRef(null);
-  const tl = useRef(null);
+  // Refs for both dropdowns
+  const servicesDropdownRef = useRef(null);
+  const aboutDropdownRef = useRef(null);
+  // Timelines for both dropdowns
+  const servicesTl = useRef(null);
+  const aboutTl = useRef(null);
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    // Navbar entrance
+    // Navbar entrance (remains the same)
     gsap.fromTo(
       navRef.current,
       { y: -20, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
     );
 
-    // Dropdown animation
-    tl.current = gsap
+    // Services Dropdown animation timeline
+    servicesTl.current = gsap
       .timeline({ paused: true })
       .fromTo(
-        dropdownRef.current,
+        servicesDropdownRef.current,
         { autoAlpha: 0, y: 12, scale: 0.98 },
         { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
       );
 
-    // Scroll-based navbar style change
+    // About Us Dropdown animation timeline
+    aboutTl.current = gsap
+      .timeline({ paused: true })
+      .fromTo(
+        aboutDropdownRef.current,
+        { autoAlpha: 0, y: 12, scale: 0.98 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
+      );
+
+    // Scroll-based navbar style change (remains the same)
     gsap.to(navRef.current, {
       scrollTrigger: {
         trigger: document.body,
@@ -38,9 +91,8 @@ export default function Navbar() {
       },
       backgroundColor: "rgba(255,255,255,0.95)",
       borderColor: "rgba(0,0,0,0.08)",
-      color: "#000", // 👈 black on scroll
+      color: "#000",
       backdropFilter: "blur(10px)",
-
       width: "100%",
       maxWidth: "100%",
       top: 0,
@@ -48,13 +100,11 @@ export default function Navbar() {
       left: "50%",
       xPercent: -50,
       duration: 0.25,
-
-      duration: 0.25,
       ease: "power3.inOut",
     });
 
-    // Dropdown / menu background
-    gsap.to(dropdownRef.current, {
+    // Dropdown / menu background scroll change (targeting both refs)
+    gsap.to([servicesDropdownRef.current, aboutDropdownRef.current], {
       scrollTrigger: {
         trigger: document.body,
         start: "top -550px",
@@ -67,8 +117,13 @@ export default function Navbar() {
     });
   }, []);
 
-  const openMenu = () => tl.current?.play();
-  const closeMenu = () => tl.current?.reverse();
+  // Handlers for Services menu
+  const openServicesMenu = () => servicesTl.current?.play();
+  const closeServicesMenu = () => servicesTl.current?.reverse();
+
+  // Handlers for About us menu
+  const openAboutMenu = () => aboutTl.current?.play();
+  const closeAboutMenu = () => aboutTl.current?.reverse();
 
   return (
     <header
@@ -82,29 +137,109 @@ export default function Navbar() {
         bg-white/15
         border border-white/20
         shadow-lg
-        text-white   /* 👈 initial text color */
+        text-white
         transition-colors
       "
     >
-      {/* Top Bar */}
       <div className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-semibold">
           LOGO
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm relative">
+          {/* --- Services Mega Menu --- */}
           <div
             className="relative"
-            onMouseEnter={openMenu}
-            onMouseLeave={closeMenu}
+            onMouseEnter={openServicesMenu}
+            onMouseLeave={closeServicesMenu}
           >
             <button className="flex items-center gap-1 font-medium">
-              About us <span className="text-xs">▾</span>
+              Services{" "}
+              <ChevronDown
+                size={14}
+                className="transition-transform duration-200"
+              />
             </button>
 
             <div
-              ref={dropdownRef}
+              ref={servicesDropdownRef}
+              className="
+                absolute left-1/2 top-[calc(100%+22px)]
+                w-[700px] -translate-x-1/2 transform
+                rounded-2xl p-8
+                opacity-0
+                backdrop-blur-xl
+                bg-white/20
+                border border-white/20
+                shadow-[0_20px_50px_rgba(0,0,0,0.2)]
+              "
+            >
+              <div className="flex">
+                <div className="grid grid-cols-4 gap-x-10 gap-y-6 flex-grow">
+                  {servicesMenu.map((category) => (
+                    <div
+                      key={category.title}
+                      className="flex flex-col space-y-3"
+                    >
+                      <h4 className="text-xs font-semibold uppercase opacity-50">
+                        {category.title}
+                      </h4>
+                      <ul className="space-y-2 text-xs">
+                        {category.items.map((item) => (
+                          <li key={item}>
+                            <Link
+                              href={`#${item
+                                .toLowerCase()
+                                .replace(/[\s&]+/g, "-")}`}
+                              className="block py-1 hover:text-blue-500 transition-colors"
+                            >
+                              {item}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <div className="w-48 ml-8 pl-6 border-l border-white/10">
+                  <h4 className="text-xs font-semibold uppercase opacity-50 mb-3">
+                    All Services
+                  </h4>
+                  <ul className="space-y-2 text-xs">
+                    {designAndWorkshops.map((item) => (
+                      <li key={item}>
+                        <Link
+                          href={`#${item
+                            .toLowerCase()
+                            .replace(/[\s&]+/g, "-")}`}
+                          className="block py-1 hover:text-blue-500 transition-colors"
+                        >
+                          {item}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* --- About us Dropdown (Original structure) --- */}
+          <div
+            className="relative"
+            onMouseEnter={openAboutMenu}
+            onMouseLeave={closeAboutMenu}
+          >
+            <button className="flex items-center gap-1 font-medium">
+              About us{" "}
+              <ChevronDown
+                size={14}
+                className="transition-transform duration-200"
+              />
+            </button>
+
+            <div
+              ref={aboutDropdownRef}
               className="
                 absolute left-0 top-[calc(100%+22px)]
                 w-44 rounded-b-2xl p-4
@@ -116,10 +251,10 @@ export default function Navbar() {
               "
             >
               <ul className="space-y-1">
-                {["Who we are", "Crew", "Reviews"].map((item) => (
-                  <li key={item}>
+                {aboutUsItems.map((item) => (
+                  <li key={item} className="group">
                     <Link
-                      href="#"
+                      href={`#${item.toLowerCase().replace(/[\s&]+/g, "-")}`}
                       className="flex items-center rounded-xl px-3 py-2 hover:bg-white/15"
                     >
                       {item}
@@ -133,9 +268,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="#services" className="font-medium">
-            Services
-          </Link>
+          {/* --- Standard Links --- */}
           <Link href="/projects" className="font-medium">
             Projects
           </Link>
@@ -144,7 +277,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Right */}
+        {/* Right (remains the same) */}
         <div className="flex items-center gap-2">
           <Button
             size="sm"
@@ -153,7 +286,6 @@ export default function Navbar() {
           >
             Contact us
           </Button>
-
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden rounded-lg p-2 hover:bg-white/10"
@@ -165,7 +297,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (remains mostly the same, linking to generic services/projects) */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
@@ -175,10 +307,12 @@ export default function Navbar() {
           <Link className="block px-5 py-4 font-medium" href="#services">
             Services
           </Link>
+          <Link className="block px-5 py-4 font-medium" href="#about">
+            About us
+          </Link>
           <Link className="block px-5 py-4 font-medium" href="#projects">
             Projects
           </Link>
-
           <div className="p-4">
             <Button size="sm" variant="outline" className="w-full">
               Contact us

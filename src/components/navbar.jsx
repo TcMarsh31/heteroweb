@@ -6,7 +6,7 @@ import gsap from "@/lib/gsap";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
-// Define the structure for the services menu
+// Define the structure for the services menu with only the requested sections
 const servicesMenu = [
   {
     title: "MOBILE APP DEVELOPMENT",
@@ -26,38 +26,21 @@ const servicesMenu = [
       "PROGRESSIVE WEB APPS",
     ],
   },
-  {
-    title: "OUTSOURCING IT",
-    items: ["FLUTTER OUTSOURCING", ".NET OUTSOURCING", "REACT.JS OUTSOURCING"],
-  },
-  {
-    title: "AI SOLUTIONS",
-    items: [],
-  },
-];
-
-const designAndWorkshops = [
-  "PROJECT START WORKSHOPS",
-  "GRAPHIC DESIGN",
-  "PRODUCT DESIGN WORKSHOPS",
-  "MVP DEVELOPMENT",
 ];
 
 const aboutUsItems = ["Who we are", "Crew", "Reviews"];
 
 export default function Navbar() {
   const navRef = useRef(null);
-  // Refs for both dropdowns
   const servicesDropdownRef = useRef(null);
   const aboutDropdownRef = useRef(null);
-  // Timelines for both dropdowns
   const servicesTl = useRef(null);
   const aboutTl = useRef(null);
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    // Navbar entrance (remains the same)
+    // Navbar entrance
     gsap.fromTo(
       navRef.current,
       { y: -20, opacity: 0 },
@@ -82,7 +65,7 @@ export default function Navbar() {
         { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
       );
 
-    // Scroll-based navbar style change (remains the same)
+    // Scroll-based navbar style change
     gsap.to(navRef.current, {
       scrollTrigger: {
         trigger: document.body,
@@ -147,7 +130,7 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm relative">
-          {/* --- Services Mega Menu --- */}
+          {/* --- Services Mega Menu (Now only 2 columns) --- */}
           <div
             className="relative"
             onMouseEnter={openServicesMenu}
@@ -165,7 +148,7 @@ export default function Navbar() {
               ref={servicesDropdownRef}
               className="
                 absolute left-1/2 top-[calc(100%+22px)]
-                w-[700px] -translate-x-1/2 transform
+                w-[500px] -translate-x-1/2 transform
                 rounded-2xl p-8
                 opacity-0
                 backdrop-blur-xl
@@ -174,57 +157,34 @@ export default function Navbar() {
                 shadow-[0_20px_50px_rgba(0,0,0,0.2)]
               "
             >
-              <div className="flex">
-                <div className="grid grid-cols-4 gap-x-10 gap-y-6 flex-grow">
-                  {servicesMenu.map((category) => (
-                    <div
-                      key={category.title}
-                      className="flex flex-col space-y-3"
-                    >
-                      <h4 className="text-xs font-semibold uppercase opacity-50">
-                        {category.title}
-                      </h4>
-                      <ul className="space-y-2 text-xs">
-                        {category.items.map((item) => (
-                          <li key={item}>
-                            <Link
-                              href={`#${item
-                                .toLowerCase()
-                                .replace(/[\s&]+/g, "-")}`}
-                              className="block py-1 hover:text-blue-500 transition-colors"
-                            >
-                              {item}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-                <div className="w-48 ml-8 pl-6 border-l border-white/10">
-                  <h4 className="text-xs font-semibold uppercase opacity-50 mb-3">
-                    All Services
-                  </h4>
-                  <ul className="space-y-2 text-xs">
-                    {designAndWorkshops.map((item) => (
-                      <li key={item}>
-                        <Link
-                          href={`#${item
-                            .toLowerCase()
-                            .replace(/[\s&]+/g, "-")}`}
-                          className="block py-1 hover:text-blue-500 transition-colors"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* Using a 2-column grid instead of 4 */}
+              <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+                {servicesMenu.map((category) => (
+                  <div key={category.title} className="flex flex-col space-y-3">
+                    <h4 className="text-xs font-semibold uppercase opacity-50">
+                      {category.title}
+                    </h4>
+                    <ul className="space-y-2 text-xs">
+                      {category.items.map((item) => (
+                        <li key={item}>
+                          <Link
+                            href={`#${item
+                              .toLowerCase()
+                              .replace(/[\s&]+/g, "-")}`}
+                            className="block py-1 hover:text-blue-500 transition-colors"
+                          >
+                            {item}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* --- About us Dropdown (Original structure) --- */}
+          {/* --- About us Dropdown --- */}
           <div
             className="relative"
             onMouseEnter={openAboutMenu}
@@ -277,7 +237,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Right (remains the same) */}
+        {/* Right */}
         <div className="flex items-center gap-2">
           <Button
             size="sm"
@@ -297,7 +257,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu (remains mostly the same, linking to generic services/projects) */}
+      {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"

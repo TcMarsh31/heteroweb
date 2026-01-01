@@ -147,9 +147,8 @@ export default function Navbar() {
             <div
               ref={servicesDropdownRef}
               className="
-                absolute left-1/2 top-[calc(100%+22px)]
-                w-[500px] -translate-x-1/2 transform
-                rounded-2xl p-8
+                absolute left-0 top-[calc(100%+22px)]
+                w-150 rounded-b-2xl p-4
                 opacity-0
                 backdrop-blur-xl
                 bg-white/20
@@ -215,12 +214,9 @@ export default function Navbar() {
                   <li key={item} className="group">
                     <Link
                       href={`#${item.toLowerCase().replace(/[\s&]+/g, "-")}`}
-                      className="flex items-center rounded-xl px-3 py-2 hover:bg-white/15"
+                      className="block py-1 hover:text-blue-500 transition-colors"
                     >
                       {item}
-                      <span className="ml-auto text-xs opacity-0 group-hover:opacity-100">
-                        →
-                      </span>
                     </Link>
                   </li>
                 ))}

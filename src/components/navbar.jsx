@@ -69,7 +69,7 @@ export default function Navbar() {
     gsap.to(navRef.current, {
       scrollTrigger: {
         trigger: document.body,
-        start: "top -550px",
+        start: "top -100px",
         toggleActions: "play reverse play reverse",
       },
       backgroundColor: "rgba(255,255,255,0.95)",
@@ -90,7 +90,7 @@ export default function Navbar() {
     gsap.to([servicesDropdownRef.current, aboutDropdownRef.current], {
       scrollTrigger: {
         trigger: document.body,
-        start: "top -550px",
+        start: "top -100px",
         toggleActions: "play reverse play reverse",
       },
       backgroundColor: "#fff",
@@ -116,7 +116,6 @@ export default function Navbar() {
         w-[90%] max-w-6xl
         -translate-x-1/2
         rounded-2xl
-        backdrop-blur-xl
         bg-white/15
         border border-white/20
         shadow-lg

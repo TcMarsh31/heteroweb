@@ -2,12 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // 1. Import usePathname
 import gsap from "@/lib/gsap";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils"; // Standard shadcn utility
 
-// Define the structure for the services menu with only the requested sections
 const servicesMenu = [
+  {
+    title: "",
+    items: ["All SERVICES"],
+  },
   {
     title: "MOBILE APP DEVELOPMENT",
     items: [".NET MAUI", "REACT NATIVE APP"],
@@ -23,6 +28,7 @@ const servicesMenu = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname(); // 2. Get current path
   const navRef = useRef(null);
   const servicesDropdownRef = useRef(null);
   const aboutDropdownRef = useRef(null);
@@ -30,15 +36,16 @@ export default function Navbar() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Helper to check if link is active
+  const isActive = (path) => pathname === path;
+
   useEffect(() => {
-    // Navbar entrance
     gsap.fromTo(
       navRef.current,
       { y: -20, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
     );
 
-    // Services Dropdown animation timeline
     servicesTl.current = gsap
       .timeline({ paused: true })
       .fromTo(
@@ -47,7 +54,6 @@ export default function Navbar() {
         { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
       );
 
-    // Scroll-based navbar style change
     gsap.to(navRef.current, {
       scrollTrigger: {
         trigger: document.body,
@@ -68,7 +74,6 @@ export default function Navbar() {
       ease: "power3.inOut",
     });
 
-    // Dropdown / menu background scroll change (targeting both refs)
     gsap.to([servicesDropdownRef.current, aboutDropdownRef.current], {
       scrollTrigger: {
         trigger: document.body,
@@ -82,24 +87,13 @@ export default function Navbar() {
     });
   }, []);
 
-  // Handlers for Services menu
   const openServicesMenu = () => servicesTl.current?.play();
   const closeServicesMenu = () => servicesTl.current?.reverse();
 
   return (
     <header
       ref={navRef}
-      className="
-        fixed top-4 left-1/2 z-50
-        w-[90%] max-w-6xl
-        -translate-x-1/2
-        rounded-2xl
-        bg-white/15
-        border border-white/20
-        shadow-lg
-        text-white
-        transition-colors
-      "
+      className="fixed top-4 left-1/2 z-50 w-[90%] max-w-6xl -translate-x-1/2 rounded-2xl bg-white/15 border border-white/20 shadow-lg text-white transition-colors"
     >
       <div className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-semibold">
@@ -107,52 +101,57 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm relative">
-          {/* --- Services Mega Menu (Now only 2 columns) --- */}
           <div
             className="relative"
             onMouseEnter={openServicesMenu}
             onMouseLeave={closeServicesMenu}
           >
-            <button className="flex items-center gap-1 font-medium">
-              Services{" "}
-              <ChevronDown
-                size={14}
-                className="transition-transform duration-200"
-              />
+            <button
+              className={cn(
+                "flex items-center gap-1 font-medium transition-colors hover:opacity-80",
+                pathname.includes("/services") && "text-blue-400" // Active state for parent
+              )}
+            >
+              Services <ChevronDown size={14} />
             </button>
 
             <div
               ref={servicesDropdownRef}
-              className="
-                absolute left-0 top-[calc(100%+22px)]
-                w-150 rounded-b-2xl p-4
-                opacity-0
-                backdrop-blur-xl
-                bg-white/20
-                border border-white/20
-                shadow-[0_20px_50px_rgba(0,0,0,0.2)]
-              "
+              className="absolute left-0 top-[calc(100%+22px)] w-[500px] rounded-b-2xl p-6 opacity-0 backdrop-blur-xl bg-white/20 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
             >
-              {/* Using a 2-column grid instead of 4 */}
-              <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+              {/* columns-2 used to allow items to flow vertically and reduce gap between specific sections */}
+              <div className="columns-2 gap-8 space-y-6">
                 {servicesMenu.map((category) => (
-                  <div key={category.title} className="flex flex-col space-y-3">
-                    <h4 className="text-xs font-semibold uppercase opacity-50">
-                      {category.title}
-                    </h4>
-                    <ul className="space-y-2 text-xs">
-                      {category.items.map((item) => (
-                        <li key={item}>
-                          <Link
-                            href={`#${item
-                              .toLowerCase()
-                              .replace(/[\s&]+/g, "-")}`}
-                            className="block py-1 hover:text-blue-500 transition-colors"
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
+                  <div
+                    key={category.title}
+                    className="break-inside-avoid flex flex-col space-y-2"
+                  >
+                    {category.title && (
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest opacity-50 mb-1">
+                        {category.title}
+                      </h4>
+                    )}
+                    <ul className="space-y-1 text-xs">
+                      {category.items.map((item) => {
+                        const href = `#${item
+                          .toLowerCase()
+                          .replace(/[\s&]+/g, "-")}`;
+                        return (
+                          <li key={item}>
+                            <Link
+                              href={href}
+                              className={cn(
+                                "block py-1 transition-colors hover:text-blue-500",
+                                isActive(href)
+                                  ? "text-blue-500 font-semibold"
+                                  : "text-inherit"
+                              )}
+                            >
+                              {item}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ))}
@@ -160,21 +159,25 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* --- About us Dropdown --- */}
-          <Link href="/about-us" className="font-medium">
-            About us
-          </Link>
-
-          {/* --- Standard Links --- */}
-          <Link href="/projects" className="font-medium">
-            Projects
-          </Link>
-          <Link href="/blog" className="font-medium">
-            Blog
-          </Link>
+          {/* Standard Links with Active Logic */}
+          {[
+            { name: "About us", href: "/about-us" },
+            { name: "Projects", href: "/projects" },
+            { name: "Blog", href: "/blog" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "font-medium transition-colors hover:opacity-80",
+                isActive(link.href) ? "text-blue-400" : "text-inherit"
+              )}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
 
-        {/* Right */}
         <div className="flex items-center gap-2">
           <Button
             size="sm"
@@ -192,30 +195,6 @@ export default function Navbar() {
             <span className="block h-0.5 w-5 bg-current" />
           </button>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="mx-4 mb-4 rounded-2xl backdrop-blur-xl bg-white/20 border border-white/20">
-          <Link className="block px-5 py-4 font-medium" href="#services">
-            Services
-          </Link>
-          <Link className="block px-5 py-4 font-medium" href="#about">
-            About us
-          </Link>
-          <Link className="block px-5 py-4 font-medium" href="#projects">
-            Projects
-          </Link>
-          <div className="p-4">
-            <Button size="sm" variant="outline" className="w-full">
-              Contact us
-            </Button>
-          </div>
-        </nav>
       </div>
     </header>
   );

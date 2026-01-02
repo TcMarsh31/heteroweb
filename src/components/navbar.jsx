@@ -22,14 +22,11 @@ const servicesMenu = [
   },
 ];
 
-const aboutUsItems = ["Who we are", "Crew", "Reviews"];
-
 export default function Navbar() {
   const navRef = useRef(null);
   const servicesDropdownRef = useRef(null);
   const aboutDropdownRef = useRef(null);
   const servicesTl = useRef(null);
-  const aboutTl = useRef(null);
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -46,15 +43,6 @@ export default function Navbar() {
       .timeline({ paused: true })
       .fromTo(
         servicesDropdownRef.current,
-        { autoAlpha: 0, y: 12, scale: 0.98 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
-      );
-
-    // About Us Dropdown animation timeline
-    aboutTl.current = gsap
-      .timeline({ paused: true })
-      .fromTo(
-        aboutDropdownRef.current,
         { autoAlpha: 0, y: 12, scale: 0.98 },
         { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
       );
@@ -97,10 +85,6 @@ export default function Navbar() {
   // Handlers for Services menu
   const openServicesMenu = () => servicesTl.current?.play();
   const closeServicesMenu = () => servicesTl.current?.reverse();
-
-  // Handlers for About us menu
-  const openAboutMenu = () => aboutTl.current?.play();
-  const closeAboutMenu = () => aboutTl.current?.reverse();
 
   return (
     <header
@@ -177,45 +161,9 @@ export default function Navbar() {
           </div>
 
           {/* --- About us Dropdown --- */}
-          <div
-            className="relative"
-            onMouseEnter={openAboutMenu}
-            onMouseLeave={closeAboutMenu}
-          >
-            <button className="flex items-center gap-1 font-medium">
-              About us{" "}
-              <ChevronDown
-                size={14}
-                className="transition-transform duration-200"
-              />
-            </button>
-
-            <div
-              ref={aboutDropdownRef}
-              className="
-                absolute left-0 top-[calc(100%+22px)]
-                w-44 rounded-b-2xl p-4
-                opacity-0
-                backdrop-blur-xl
-                bg-white/20
-                border border-white/20
-                shadow-[0_20px_50px_rgba(0,0,0,0.2)]
-              "
-            >
-              <ul className="space-y-1">
-                {aboutUsItems.map((item) => (
-                  <li key={item} className="group">
-                    <Link
-                      href={`#${item.toLowerCase().replace(/[\s&]+/g, "-")}`}
-                      className="block py-1 hover:text-blue-500 transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <Link href="/about-us" className="font-medium">
+            About us
+          </Link>
 
           {/* --- Standard Links --- */}
           <Link href="/projects" className="font-medium">

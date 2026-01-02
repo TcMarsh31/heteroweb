@@ -139,7 +139,7 @@ export default function Navbar() {
                         return (
                           <li key={item}>
                             <Link
-                              href={href}
+                              href={"/services"}
                               className={cn(
                                 "block py-1 transition-colors hover:text-blue-500",
                                 isActive(href)

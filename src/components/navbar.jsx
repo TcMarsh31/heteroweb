@@ -90,6 +90,12 @@ export default function Navbar() {
   const openServicesMenu = () => servicesTl.current?.play();
   const closeServicesMenu = () => servicesTl.current?.reverse();
 
+  const buildNavLink = (item) => {
+    if (item.toLowerCase() === "all services") return "/services";
+    const slug = item.toLowerCase().replace(/[\s&]+/g, "-");
+    return `/services/${slug}`;
+  };
+
   return (
     <header
       ref={navRef}
@@ -139,7 +145,7 @@ export default function Navbar() {
                         return (
                           <li key={item}>
                             <Link
-                              href={"/services"}
+                              href={`${buildNavLink(item)}`}
                               className={cn(
                                 "block py-1 transition-colors hover:text-blue-500",
                                 isActive(href)

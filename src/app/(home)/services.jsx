@@ -143,12 +143,12 @@ function ServiceCard({ title, description, icon }) {
 
       <p className="mt-4 text-gray-500 text-sm sm:text-base">{description}</p>
 
-      <a
-        href="#"
+      <Link
+        href={"/services/" + title.replace(/\s+/g, "-")}
         className="inline-block mt-6 border border-pink-400 text-pink-500 px-5 py-2 rounded-lg font-semibold hover:bg-pink-50 transition"
       >
         See More
-      </a>
+      </Link>
     </SpotlightCard>
   );
 }

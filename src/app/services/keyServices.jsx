@@ -1,8 +1,9 @@
 // components/services-section.tsx (or place in app/page.tsx for a full page)
 import { Smartphone, Laptop, Zap, BrainCircuit } from "lucide-react"; // Example icons
 import { Button } from "@/components/ui/button"; // Assuming standard shadcn setup
+import { useRouter } from "next/navigation";
 
-const ServiceCard = ({ icon: Icon, title, description, linkText }) => (
+const ServiceCard = ({ icon: Icon, title, description, linkText, route }) => (
   <div className="flex flex-col p-6 bg-white shadow-sm border border-gray-100 rounded-xl transition-shadow hover:shadow-md">
     <div className="mb-4">
       <Icon className="w-8 h-8 text-gray-700" />
@@ -11,42 +12,44 @@ const ServiceCard = ({ icon: Icon, title, description, linkText }) => (
     <p className="text-sm text-gray-500 mb-6 flex-grow">{description}</p>
     <Button
       variant="outline"
+      onClick={() => route.push("/services/" + linkText)}
       className="w-fit text-xs font-semibold uppercase tracking-wider text-red-500 border-red-200 hover:bg-red-50"
     >
-      {linkText}
+      SEE MORE
     </Button>
   </div>
 );
 
 export default function KeyServicesSection() {
+  const route = useRouter();
   const services = [
     {
       icon: Laptop,
       title: "Custom Web Development",
       description:
         "Scalable web solutions built for performance and growth. We create fast, secure, and user-focused web applications tailored to your business needs.",
-      linkText: "SEE MORE",
+      linkText: "Custom-Web-Development",
     },
     {
       icon: Smartphone,
       title: "Mobile App Development",
       description:
         "Powerful mobile experiences for Android & iOS. From idea to launch, we build high-performance mobile apps that users love.",
-      linkText: "SEE MORE",
+      linkText: "Mobile-App-Development",
     },
     {
       icon: BrainCircuit,
       title: "AI-Driven Solutions Tailored for Your Business",
       description:
         "Smart technology that works for you. We integrate AI to automate processes, gain insights, and drive smarter decisions.",
-      linkText: "SEE MORE",
+      linkText: "AI-Driven-Solutions-Tailored-for-Your-Business",
     },
     {
       icon: Laptop,
       title: "WordPress Development",
       description:
         "We deliver high-quality WordPress websites tailored to your brand and business goals. From custom themes to advanced plugins, our solutions drive traffic, engagement, and conversions.",
-      linkText: "SEE MORE",
+      linkText: "WordPress-Development",
     },
   ];
 
@@ -68,7 +71,7 @@ export default function KeyServicesSection() {
         {/* Services Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <ServiceCard key={service.title} {...service} route={route} />
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import SpotlightCard from "@/components/SpotlightCard";
+import Link from "next/link";
 
 function Services() {
   const servicesRef = useRef(null);
@@ -42,12 +43,12 @@ function Services() {
           </p>
           <div className="mt-8 flex items-center gap-4">
             <span className="h-0.5 w-14 bg-blue-500" />
-            <a
-              href="#"
+            <Link
+              href="/services"
               className="text-blue-500 font-medium hover:text-blue-600"
             >
               View more
-            </a>
+            </Link>
           </div>
         </div>
 

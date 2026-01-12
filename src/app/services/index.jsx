@@ -10,7 +10,7 @@ function Services() {
     <>
       <SecoundHero
         heading="Software Development Services"
-        subheading="Create a custom app that enables growth for your business."
+        subheading="We design and build technology solutions tailored exactly to your business goals — scalable, secure, and future-ready."
       />
       <KeyServicesSection />
       <TechnologySection />

@@ -1,5 +1,5 @@
 // components/services-section.tsx (or place in app/page.tsx for a full page)
-import { Smartphone, Laptop, Zap } from "lucide-react"; // Example icons
+import { Smartphone, Laptop, Zap, BrainCircuit } from "lucide-react"; // Example icons
 import { Button } from "@/components/ui/button"; // Assuming standard shadcn setup
 
 const ServiceCard = ({ icon: Icon, title, description, linkText }) => (
@@ -22,16 +22,30 @@ export default function KeyServicesSection() {
   const services = [
     {
       icon: Laptop,
-      title: "Web App Development",
+      title: "Custom Web Development",
       description:
-        "Do you serve your customers online? Go for a user-friendly design and complete responsiveness. Choose mobitouch software house.",
+        "Scalable web solutions built for performance and growth. We create fast, secure, and user-focused web applications tailored to your business needs.",
       linkText: "SEE MORE",
     },
     {
       icon: Smartphone,
       title: "Mobile App Development",
       description:
-        "Switch your business to mobile mode. Let's create software that fits well in hand.",
+        "Powerful mobile experiences for Android & iOS. From idea to launch, we build high-performance mobile apps that users love.",
+      linkText: "SEE MORE",
+    },
+    {
+      icon: BrainCircuit,
+      title: "AI-Driven Solutions Tailored for Your Business",
+      description:
+        "Smart technology that works for you. We integrate AI to automate processes, gain insights, and drive smarter decisions.",
+      linkText: "SEE MORE",
+    },
+    {
+      icon: Laptop,
+      title: "WordPress Development",
+      description:
+        "We deliver high-quality WordPress websites tailored to your brand and business goals. From custom themes to advanced plugins, our solutions drive traffic, engagement, and conversions.",
       linkText: "SEE MORE",
     },
   ];

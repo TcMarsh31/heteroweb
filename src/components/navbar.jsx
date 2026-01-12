@@ -90,11 +90,11 @@ export default function Navbar() {
   // const openServicesMenu = () => servicesTl.current?.play();
   // const closeServicesMenu = () => servicesTl.current?.reverse();
 
-  const buildNavLink = (item) => {
-    if (item.toLowerCase() === "all services") return "/services";
-    const slug = item.toLowerCase().replace(/[\s&]+/g, "-");
-    return `/services/${slug}`;
-  };
+  // const buildNavLink = (item) => {
+  //   if (item.toLowerCase() === "all services") return "/services";
+  //   const slug = item.toLowerCase().replace(/[\s&]+/g, "-");
+  //   return `/services/${slug}`;
+  // };
 
   return (
     <header
@@ -169,7 +169,8 @@ export default function Navbar() {
             { name: "Services", href: "/services" },
             { name: "About us", href: "/about-us" },
             { name: "Projects", href: "/projects" },
-            { name: "Blog", href: "/blog" },
+            { name: "Contact us", href: "/contact" },
+            // { name: "Blog", href: "/blog" },
           ].map((link) => (
             <Link
               key={link.href}
@@ -185,13 +186,13 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button
+          {/* <Button
             size="sm"
             variant="outline"
             className="text-black hidden md:flex"
           >
             Contact us
-          </Button>
+          </Button> */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden rounded-lg p-2 hover:bg-white/10"

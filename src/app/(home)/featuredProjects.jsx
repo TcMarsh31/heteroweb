@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const FeaturedProjectsSection = () => {
   return (
-    <section className="container mx-auto px-4 py-12 md:py-20">
+    <section className="py-14 px-4 sm:px-6 lg:px-8 w-full">
       <div className="text-center md:text-left">
         <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
           Featured Projects
@@ -29,35 +29,22 @@ const FeaturedProjectsSection = () => {
         {/* Project 1: Radio Nowy Świat */}
         <Card className="overflow-hidden shadow-lg">
           <CardContent className="p-0">
-            {/* Image Placeholder - use actual image paths */}
             <div className="relative h-96 w-full bg-gray-100 flex items-center justify-center p-4">
-              {/* This div simulates the two phone images in the original image */}
-              <div className="absolute left-1/4 transform -translate-x-1/2">
-                <Image
-                  src="/placeholder-phone-1.png"
-                  alt="Radio Nowy Świat App"
-                  width={200}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="absolute right-1/4 transform translate-x-1/2">
-                <Image
-                  src="/placeholder-phone-2.png"
-                  alt="Radio Nowy Świat App"
-                  width={200}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+              <Image
+                src="/img/grocxpress.png"
+                alt="GrocXpress App"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="p-6">
-              <CardTitle className="text-2xl font-bold">
-                Radio Nowy Świat
-              </CardTitle>
+              <CardTitle className="text-2xl font-bold">GrocXpress</CardTitle>
               <CardDescription className="mt-2 text-gray-500">
-                A mobile application thanks to which you can listen to your
-                favorite music and podcasts anytime and anywhere!
+                GrocXpress is a global digital payment platform enabling
+                seamless mobile network payments and DTH recharges across
+                multiple providers worldwide. The platform features a powerful
+                dashboard, agent management, and real-time reporting for
+                efficient operations.
               </CardDescription>
             </div>
           </CardContent>
@@ -68,33 +55,23 @@ const FeaturedProjectsSection = () => {
           <CardContent className="p-0">
             {/* Image Placeholder - use actual image paths */}
             <div className="relative h-96 w-full bg-gray-100 flex items-center justify-center p-4">
-              {/* This div simulates the two phone images in the original image */}
-              <div className="absolute left-1/4 transform -translate-x-1/2">
-                <Image
-                  src="/placeholder-fakro-1.png"
-                  alt="FAKRO CONNECT App"
-                  width={200}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="absolute right-1/4 transform translate-x-1/2">
-                <Image
-                  src="/placeholder-fakro-2.png"
-                  alt="FAKRO CONNECT QR"
-                  width={200}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+              <Image
+                src="/img/grocxpress.png"
+                alt="QuickTransfert App"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="p-6">
               <CardTitle className="text-2xl font-bold">
-                FAKRO CONNECT
+                QuickTransfert
               </CardTitle>
               <CardDescription className="mt-2 text-gray-500">
-                Mobile application featuring a loyalty program for the B2B
-                sector.
+                QuickTransfert is a global digital payment platform enabling
+                seamless mobile network payments and DTH recharges across
+                multiple providers worldwide. The platform features a powerful
+                dashboard, agent management, and real-time reporting for
+                efficient operations.
               </CardDescription>
             </div>
           </CardContent>

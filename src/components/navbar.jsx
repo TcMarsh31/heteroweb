@@ -30,9 +30,9 @@ const servicesMenu = [
 export default function Navbar() {
   const pathname = usePathname(); // 2. Get current path
   const navRef = useRef(null);
-  const servicesDropdownRef = useRef(null);
+  // const servicesDropdownRef = useRef(null);
   const aboutDropdownRef = useRef(null);
-  const servicesTl = useRef(null);
+  // const servicesTl = useRef(null);
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -46,13 +46,13 @@ export default function Navbar() {
       { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
     );
 
-    servicesTl.current = gsap
-      .timeline({ paused: true })
-      .fromTo(
-        servicesDropdownRef.current,
-        { autoAlpha: 0, y: 12, scale: 0.98 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
-      );
+    // servicesTl.current = gsap
+    //   .timeline({ paused: true })
+    //   .fromTo(
+    //     servicesDropdownRef.current,
+    //     { autoAlpha: 0, y: 12, scale: 0.98 },
+    //     { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
+    //   );
 
     gsap.to(navRef.current, {
       scrollTrigger: {
@@ -73,8 +73,8 @@ export default function Navbar() {
       duration: 0.25,
       ease: "power3.inOut",
     });
-
-    gsap.to([servicesDropdownRef.current, aboutDropdownRef.current], {
+    //[servicesDropdownRef.current, aboutDropdownRef.current]
+    gsap.to(aboutDropdownRef.current, {
       scrollTrigger: {
         trigger: document.body,
         start: "top -100px",
@@ -87,8 +87,8 @@ export default function Navbar() {
     });
   }, []);
 
-  const openServicesMenu = () => servicesTl.current?.play();
-  const closeServicesMenu = () => servicesTl.current?.reverse();
+  // const openServicesMenu = () => servicesTl.current?.play();
+  // const closeServicesMenu = () => servicesTl.current?.reverse();
 
   const buildNavLink = (item) => {
     if (item.toLowerCase() === "all services") return "/services";
@@ -107,7 +107,7 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm relative">
-          <div
+          {/* <div
             className="relative"
             onMouseEnter={openServicesMenu}
             onMouseLeave={closeServicesMenu}
@@ -125,7 +125,6 @@ export default function Navbar() {
               ref={servicesDropdownRef}
               className="absolute left-0 top-[calc(100%+22px)] w-[500px] rounded-b-2xl p-6 opacity-0 backdrop-blur-xl bg-white/20 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
             >
-              {/* columns-2 used to allow items to flow vertically and reduce gap between specific sections */}
               <div className="columns-2 gap-8 space-y-6">
                 {servicesMenu.map((category) => (
                   <div
@@ -163,10 +162,11 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Standard Links with Active Logic */}
           {[
+            { name: "Services", href: "/services" },
             { name: "About us", href: "/about-us" },
             { name: "Projects", href: "/projects" },
             { name: "Blog", href: "/blog" },

@@ -58,21 +58,8 @@ function Services() {
           className="space-y-8 max-h-[70vh] overflow-y-auto hide-scrollbar"
         >
           <ServiceCard
-            title="Product Discovery Workshops"
-            description="Discuss your concept with experienced software developers and designers. We will point out your possibilities for web and mobile solutions."
-            icon={
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2z"
-              />
-            }
-          />
-
-          <ServiceCard
-            title="MVP Development"
-            description="Launch your digital project with minimal risk. Verify and develop it on the market with a professional software company."
+            title="Custom Web Development"
+            description="Scalable web solutions built for performance and growth. We create fast, secure, and user-focused web applications tailored to your business needs."
             icon={
               <path
                 strokeLinecap="round"
@@ -84,8 +71,8 @@ function Services() {
           />
 
           <ServiceCard
-            title="MVP Development"
-            description="Launch your digital project with minimal risk. Verify and develop it on the market with a professional software company."
+            title="Mobile App Development"
+            description="Powerful mobile experiences for Android & iOS. From idea to launch, we build high-performance mobile apps that users love."
             icon={
               <path
                 strokeLinecap="round"
@@ -97,8 +84,8 @@ function Services() {
           />
 
           <ServiceCard
-            title="MVP Development"
-            description="Launch your digital project with minimal risk. Verify and develop it on the market with a professional software company."
+            title="AI-Driven Solutions Tailored for Your Business"
+            description="Smart technology that works for you. We integrate AI to automate processes, gain insights, and drive smarter decisions."
             icon={
               <path
                 strokeLinecap="round"
@@ -110,21 +97,8 @@ function Services() {
           />
 
           <ServiceCard
-            title="MVP Development"
-            description="Launch your digital project with minimal risk. Verify and develop it on the market with a professional software company."
-            icon={
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-              />
-            }
-          />
-
-          <ServiceCard
-            title="MVP Development"
-            description="Launch your digital project with minimal risk. Verify and develop it on the market with a professional software company."
+            title="Expert WordPress Development Services for Businesses"
+            description="We deliver high-quality WordPress websites tailored to your brand and business goals. From custom themes to advanced plugins, our solutions drive traffic, engagement, and conversions. "
             icon={
               <path
                 strokeLinecap="round"

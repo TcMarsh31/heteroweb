@@ -36,7 +36,10 @@ function Services() {
           <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
             Let's customize your project
           </h1>
-
+          <p className="mt-4 text-xl text-gray-500">
+            We design and build technology solutions tailored exactly to your
+            business goals — scalable, secure, and future-ready.
+          </p>
           <div className="mt-8 flex items-center gap-4">
             <span className="h-0.5 w-14 bg-blue-500" />
             <a

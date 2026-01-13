@@ -9,21 +9,23 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedProjectsSection = () => {
+const FeaturedProjectsSection = ({ isProjectPage = false }) => {
   const route = useRouter();
   return (
     <section className="py-14 px-4 sm:px-6 lg:px-8 w-full">
-      <div className="text-center md:text-left">
-        <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
-          Featured Projects
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          Our implementations of tailor-made software
-        </h1>
-        <p className="mt-4 text-xl text-gray-500">
-          Check out our projects that highlight business growth.
-        </p>
-      </div>
+      {!isProjectPage && (
+        <div className="text-center md:text-left">
+          <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+            Featured Projects
+          </p>
+          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            Our implementations of tailor-made software
+          </h1>
+          <p className="mt-4 text-xl text-gray-500">
+            Check out our projects that highlight business growth.
+          </p>
+        </div>
+      )}
 
       {/* Responsive Grid Layout */}
       <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -79,14 +81,17 @@ const FeaturedProjectsSection = () => {
         </Card>
       </div>
 
-      <div className="mt-12 text-center">
-        <Button
-          size="lg"
-          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg"
-        >
-          BROWSE ALL PROJECTS
-        </Button>
-      </div>
+      {!isProjectPage && (
+        <div className="mt-12 text-center">
+          <Button
+            size="lg"
+            onClick={() => route.push("/projects")}
+            className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg"
+          >
+            BROWSE ALL PROJECTS
+          </Button>
+        </div>
+      )}
     </section>
   );
 };

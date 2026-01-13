@@ -7,6 +7,7 @@ import gsap from "@/lib/gsap";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils"; // Standard shadcn utility
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const servicesMenu = [
   {
@@ -40,21 +41,48 @@ export default function Navbar() {
   const isActive = (path) => pathname === path;
 
   useEffect(() => {
+    const nav = navRef.current;
+    const about = aboutDropdownRef.current;
+
+    // 🔥 CLEANUP PREVIOUS GSAP STATE
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    gsap.killTweensOf(nav);
+    gsap.set(nav, { clearProps: "all" });
+
+    // Entrance animation
     gsap.fromTo(
-      navRef.current,
+      nav,
       { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }
     );
 
-    // servicesTl.current = gsap
-    //   .timeline({ paused: true })
-    //   .fromTo(
-    //     servicesDropdownRef.current,
-    //     { autoAlpha: 0, y: 12, scale: 0.98 },
-    //     { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
-    //   );
+    // 👉 CONTACT PAGE (NO SCROLL LOGIC)
+    if (pathname === "/contact") {
+      gsap.set(nav, {
+        top: 0,
+        left: "50%",
+        xPercent: -50,
+        width: "100%",
+        maxWidth: "100%",
+        borderRadius: 0,
+        backgroundColor: "rgba(255,255,255,0.95)",
+        borderColor: "rgba(0,0,0,0.08)",
+        color: "#000",
+        backdropFilter: "blur(10px)",
+      });
 
-    gsap.to(navRef.current, {
+      if (about) {
+        gsap.set(about, {
+          backgroundColor: "#fff",
+          borderColor: "rgba(0,0,0,0.08)",
+        });
+      }
+
+      return;
+    }
+
+    // 👉 OTHER PAGES (SCROLL TRIGGER)
+    gsap.to(nav, {
       scrollTrigger: {
         trigger: document.body,
         start: "top -100px",
@@ -73,19 +101,26 @@ export default function Navbar() {
       duration: 0.25,
       ease: "power3.inOut",
     });
-    //[servicesDropdownRef.current, aboutDropdownRef.current]
-    gsap.to(aboutDropdownRef.current, {
-      scrollTrigger: {
-        trigger: document.body,
-        start: "top -100px",
-        toggleActions: "play reverse play reverse",
-      },
-      backgroundColor: "#fff",
-      borderColor: "rgba(0,0,0,0.08)",
-      duration: 0.25,
-      ease: "power2.out",
-    });
-  }, []);
+
+    if (about) {
+      gsap.to(about, {
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top -100px",
+          toggleActions: "play reverse play reverse",
+        },
+        backgroundColor: "#fff",
+        borderColor: "rgba(0,0,0,0.08)",
+        duration: 0.25,
+        ease: "power2.out",
+      });
+    }
+
+    // 🧹 CLEANUP ON ROUTE CHANGE
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, [pathname]);
 
   // const openServicesMenu = () => servicesTl.current?.play();
   // const closeServicesMenu = () => servicesTl.current?.reverse();

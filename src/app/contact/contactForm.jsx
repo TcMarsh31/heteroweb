@@ -22,7 +22,7 @@ const ContactBookingSection = () => {
   const [hasAcceptedPrivacy, setHasAcceptedPrivacy] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row bg-white max-w-5xl mx-auto mt-20 shadow-lg">
+    <div className="flex flex-col md:flex-row bg-white max-w-5xl mx-auto mt-30 shadow-lg">
       {" "}
       {/* Added shadow for definition */}
       {/* Left Column: Form Section */}

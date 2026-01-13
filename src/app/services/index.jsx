@@ -2,7 +2,7 @@
 import SecoundHero from "@/components/SecoundHero";
 import KeyServicesSection from "./keyServices";
 import TechnologySection from "./technology";
-import Inquiry from "../(home)/inquiry";
+import Inquiry from "../../components/inquiry";
 import ProcessTimeline from "./process";
 
 function Services() {

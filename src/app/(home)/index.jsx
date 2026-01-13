@@ -6,6 +6,7 @@ import Services from "./services";
 import FeaturedProjectsSection from "./featuredProjects";
 import AboutUsSection from "./aboutUs";
 import Inquiry from "./inquiry";
+import TestimonialSection from "./testimonial";
 // import BlogPage from "./blog";
 
 function Home() {
@@ -19,6 +20,8 @@ function Home() {
       <FeaturedProjectsSection />
       {/* About Us Section */}
       <AboutUsSection />
+      {/* Testimonial Section */}
+      <TestimonialSection />
       {/* Inquiry Section */}
       <Inquiry />
       {/* Blog Page Section */}

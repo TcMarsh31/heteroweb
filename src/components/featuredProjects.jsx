@@ -3,13 +3,14 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const FeaturedProjectsSection = () => {
+  const route = useRouter();
   return (
     <section className="py-14 px-4 sm:px-6 lg:px-8 w-full">
       <div className="text-center md:text-left">

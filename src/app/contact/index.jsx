@@ -1,11 +1,13 @@
 // app/page.tsx
-
+"use client";
+import SecoundHero from "@/components/SecoundHero";
 import ContactBookingSection from "./contactForm";
 
 export default function Contact() {
   return (
-    <main className="min-h-screen ">
+    <>
+      <SecoundHero heading="Contact US" subheading="" />
       <ContactBookingSection />
-    </main>
+    </>
   );
 }

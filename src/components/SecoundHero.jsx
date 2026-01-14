@@ -2,9 +2,10 @@ import React from "react";
 import Iridescence from "./Iridescence";
 import TextType from "./TextType";
 
-function SecoundHero({ heading, subheading }) {
+function SecoundHero({ heading, subheading, width = 600 }) {
+  const sectionCN = `relative h-[${width}px] w-full overflow-hidden`;
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
+    <section className={sectionCN}>
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Iridescence

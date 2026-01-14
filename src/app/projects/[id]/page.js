@@ -1,8 +1,9 @@
 import React from "react";
 import Index from ".";
 
-function page() {
-  return <Index />;
+async function page({ params }) {
+  const { id } = await params;
+  return <Index id={id} />;
 }
 
 export default page;

@@ -30,7 +30,10 @@ const FeaturedProjectsSection = ({ isProjectPage = false }) => {
       {/* Responsive Grid Layout */}
       <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {/* Project 1: Radio Nowy Świat */}
-        <Card className="overflow-hidden shadow-lg">
+        <Card
+          className="overflow-hidden shadow-lg cursor-pointer"
+          onClick={() => route.push("/projects/grocx")}
+        >
           <CardContent className="p-0">
             <div className="relative h-96 w-full bg-gray-100 flex items-center justify-center p-4">
               <Image
@@ -54,7 +57,10 @@ const FeaturedProjectsSection = ({ isProjectPage = false }) => {
         </Card>
 
         {/* Project 2: FAKRO CONNECT */}
-        <Card className="overflow-hidden shadow-lg">
+        <Card
+          className="overflow-hidden shadow-lg cursor-pointer"
+          onClick={() => route.push("/projects/qt")}
+        >
           <CardContent className="p-0">
             {/* Image Placeholder - use actual image paths */}
             <div className="relative h-96 w-full bg-gray-100 flex items-center justify-center p-4">

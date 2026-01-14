@@ -46,45 +46,54 @@ export default function Navbar() {
       { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
     );
 
-    // servicesTl.current = gsap
-    //   .timeline({ paused: true })
-    //   .fromTo(
-    //     servicesDropdownRef.current,
-    //     { autoAlpha: 0, y: 12, scale: 0.98 },
-    //     { autoAlpha: 1, y: 0, scale: 1, duration: 0.25, ease: "power3.out" }
-    //   );
+    const mm = gsap.matchMedia();
 
-    gsap.to(navRef.current, {
-      scrollTrigger: {
-        trigger: document.body,
-        start: "top -100px",
-        toggleActions: "play reverse play reverse",
-      },
-      backgroundColor: "rgba(255,255,255,0.95)",
-      borderColor: "rgba(0,0,0,0.08)",
-      color: "#000",
-      backdropFilter: "blur(10px)",
-      width: "100%",
-      maxWidth: "100%",
-      top: 0,
-      borderRadius: 0,
-      left: "50%",
-      xPercent: -50,
-      duration: 0.25,
-      ease: "power3.inOut",
+    // ✅ DESKTOP behavior
+    mm.add("(min-width: 768px)", () => {
+      gsap.to(navRef.current, {
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top -100px",
+          toggleActions: "play reverse play reverse",
+        },
+        backgroundColor: "rgba(255,255,255,0.95)",
+        borderColor: "rgba(0,0,0,0.08)",
+        color: "#000",
+        backdropFilter: "blur(10px)",
+        width: "100%",
+        maxWidth: "100%",
+        top: 0,
+        borderRadius: 0,
+        left: "50%",
+        xPercent: -50,
+        duration: 0.25,
+        ease: "power3.inOut",
+      });
     });
-    //[servicesDropdownRef.current, aboutDropdownRef.current]
-    gsap.to(aboutDropdownRef.current, {
-      scrollTrigger: {
-        trigger: document.body,
-        start: "top -100px",
-        toggleActions: "play reverse play reverse",
-      },
-      backgroundColor: "#fff",
-      borderColor: "rgba(0,0,0,0.08)",
-      duration: 0.25,
-      ease: "power2.out",
+
+    // ✅ MOBILE behavior (NO horizontal movement)
+    mm.add("(max-width: 767px)", () => {
+      gsap.to(navRef.current, {
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top -100px",
+          toggleActions: "play reverse play reverse",
+        },
+        backgroundColor: "rgba(255,255,255,0.95)",
+        borderColor: "rgba(0,0,0,0.08)",
+        color: "#000",
+        backdropFilter: "blur(10px)",
+        top: 0,
+        left: 0,
+        x: 0,
+        width: "100%",
+        borderRadius: 0,
+        duration: 0.25,
+        ease: "power3.inOut",
+      });
     });
+
+    return () => mm.revert();
   }, []);
 
   // const openServicesMenu = () => servicesTl.current?.play();
@@ -202,6 +211,49 @@ export default function Navbar() {
             <span className="block h-0.5 w-5 bg-current" />
           </button>
         </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="mx-4 mb-4 rounded-2xl backdrop-blur-xl bg-white/20 border border-white/20">
+          <Link
+            className="block px-5 py-4 font-medium"
+            href="/services"
+            onClick={() => setMobileOpen(false)}
+          >
+            Services
+          </Link>
+          <Link
+            className="block px-5 py-4 font-medium"
+            href="/about-us"
+            onClick={() => setMobileOpen(false)}
+          >
+            About us
+          </Link>
+          <Link
+            className="block px-5 py-4 font-medium"
+            href="/projects"
+            onClick={() => setMobileOpen(false)}
+          >
+            Projects
+          </Link>
+          <Link
+            className="block px-5 py-4 font-medium"
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+          >
+            Contact us
+          </Link>
+          {/* <div className="p-4">
+            <Button size="sm" variant="outline" className="w-full">
+              Contact us
+            </Button>
+          </div> */}
+        </nav>
       </div>
     </header>
   );

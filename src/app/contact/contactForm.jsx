@@ -15,14 +15,13 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image"; // Assuming you have Next.js Image optimization
-import { Linkedin } from "lucide-react"; // Example icon for LinkedIn
 
 const ContactBookingSection = () => {
   // Simple state management for the checkbox
   const [hasAcceptedPrivacy, setHasAcceptedPrivacy] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row bg-white max-w-5xl mx-auto mt-30 shadow-lg">
+    <div className="flex flex-col md:flex-row bg-white max-w-5xl mx-auto  ">
       {" "}
       {/* Added shadow for definition */}
       {/* Left Column: Form Section */}

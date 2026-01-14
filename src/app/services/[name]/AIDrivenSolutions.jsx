@@ -11,10 +11,9 @@ import Link from "next/link";
 
 export default function AIDrivenSolutions() {
   return (
-    <div className="container mx-auto px-6 py-20">
+    <div className="container mx-auto px-6  pt-10 pb-20">
       {/* Hero Section */}
       <section className="max-w-4xl mb-20">
-        <p className="text-sm font-semibold text-blue-600 mb-3">Services</p>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
           AI-Driven Solutions Tailored for Your Business
         </h1>

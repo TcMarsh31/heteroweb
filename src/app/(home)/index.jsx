@@ -19,6 +19,7 @@ function Home() {
       {/* Inquiry Section */}
       <Inquiry
         title="Have an Idea???"
+        isImageRight={true}
         description={`Let’s turn your vision into reality.
 Share your project with us and let’s create something amazing together!`}
       />

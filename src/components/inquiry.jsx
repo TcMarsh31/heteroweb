@@ -7,7 +7,7 @@ export default function Inquiry({
 }) {
   return (
     // The main container with the purple background color
-    <section className="relative bg-[#8d1be5] text-white p-8 md:p-16 overflow-hidden">
+    <section className="relative bg-[#004F2D] text-white p-8 md:p-16 overflow-hidden">
       <div className="max-w-4xl mx-auto z-10 relative">
         <p className="text-sm font-semibold uppercase tracking-wider mb-4 opacity-75">
           {title}
@@ -16,7 +16,7 @@ export default function Inquiry({
           {description}
         </h1>
         {/* The orange button using a custom background color utility */}
-        <Button className="bg-[#ff4d00] hover:bg-[#e64500] text-white font-semibold py-6 px-10 rounded-lg shadow-lg">
+        <Button className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-6 px-10 rounded-lg shadow-lg">
           SEND AN INQUIRY
         </Button>
       </div>

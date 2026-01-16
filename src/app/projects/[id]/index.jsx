@@ -8,7 +8,7 @@ export default function Home({ id }) {
     <>
       <SecoundHero
         heading={id === "qt" ? "QuickTransfert" : "GrocXpress"}
-        width={300}
+        width={400}
       />
       {id === "qt" ? <QT /> : <GrocXpress />}
     </>

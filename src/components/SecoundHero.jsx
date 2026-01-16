@@ -17,7 +17,7 @@ function SecoundHero({ heading, subheading, width = 600 }) {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-10 flex h-full items-center px-20">
+      <div className="relative z-10 flex h-full items-center pt-25 pb-10">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
             <div>

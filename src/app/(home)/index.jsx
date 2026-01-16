@@ -19,9 +19,10 @@ function Home() {
       {/* Inquiry Section */}
       <Inquiry
         title="Have an Idea???"
-        description="Let’s turn your vision into reality.
-Share your project with us and let’s create something amazing together!"
+        description={`Let’s turn your vision into reality.
+Share your project with us and let’s create something amazing together!`}
       />
+
       {/* Featured Projects Section */}
       <FeaturedProjectsSection />
       {/* About Us Section */}

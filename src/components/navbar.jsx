@@ -112,7 +112,7 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-semibold">
-          LOGO
+          HeteroGenz
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm relative">
@@ -215,9 +215,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <nav className="mx-4 mb-4 rounded-2xl backdrop-blur-xl bg-white/20 border border-white/20">
           <Link

@@ -77,7 +77,7 @@ export default function TestimonialSection() {
                   <div className="flex justify-center mb-6">
                     <Image
                       src={testimonial.companyLogo}
-                      alt="Company Logo"
+                      alt="HeteroGenz Logo"
                       width={100}
                       height={40}
                     />

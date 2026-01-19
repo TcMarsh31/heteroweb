@@ -13,7 +13,7 @@ function Footer() {
                 alt="FlowBite Logo"
               /> */}
               <span className="self-center text-2xl font-semibold whitespace-nowrap">
-                LOGO
+                HeteroGenz
               </span>
             </a>
           </div>
@@ -26,7 +26,7 @@ function Footer() {
               <ul className="font-medium">
                 <li className="mb-4">
                   <a href="https://flowbite.com/" className="hover:underline">
-                    LOGO
+                    HeteroGenz
                   </a>
                 </li>
                 <li>

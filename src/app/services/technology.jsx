@@ -45,7 +45,7 @@ export default function TechnologySection() {
               <li>
                 <strong className="text-blue-400">Cross-platform</strong>
                 <ul className="pl-4 pt-2 space-y-2 text-xs text-gray-400">
-                  <li>• Flutter</li>
+                  <li>• .NET MAUI</li>
                 </ul>
               </li>
               <li className="flex gap-10">
@@ -59,6 +59,7 @@ export default function TechnologySection() {
                   <strong className="text-blue-400">Android</strong>
                   <ul className="pl-4 pt-2 space-y-2 text-xs text-gray-400">
                     <li>• Kotlin</li>
+                    <li>• Java</li>
                   </ul>
                 </div>
               </li>
@@ -79,7 +80,6 @@ export default function TechnologySection() {
             <h2 className="text-sm font-semibold mb-6">Front-end</h2>
             <ul className="space-y-4 text-xs text-gray-400">
               <li>• React.js</li>
-              <li>• Angular</li>
               <li>• HTML5</li>
               <li>• CSS3</li>
               <li>• JavaScript</li>

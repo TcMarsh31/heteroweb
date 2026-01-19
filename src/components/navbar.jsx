@@ -73,11 +73,19 @@ export default function Navbar() {
 
     // ✅ MOBILE behavior (NO horizontal movement)
     mm.add("(max-width: 767px)", () => {
+      // 🔥 HARD RESET any desktop transforms
+      gsap.set(navRef.current, {
+        clearProps: "transform",
+        x: 0,
+        xPercent: 0,
+      });
+
       gsap.to(navRef.current, {
         scrollTrigger: {
           trigger: document.body,
           start: "top -100px",
           toggleActions: "play reverse play reverse",
+          invalidateOnRefresh: true,
         },
         backgroundColor: "rgba(255,255,255,0.95)",
         borderColor: "rgba(0,0,0,0.08)",
@@ -85,13 +93,15 @@ export default function Navbar() {
         backdropFilter: "blur(10px)",
         top: 0,
         left: 0,
-        x: 0,
         width: "100%",
         borderRadius: 0,
+        x: 0,
+        xPercent: 0, // ✅ CRITICAL
         duration: 0.25,
         ease: "power3.inOut",
       });
     });
+
 
     return () => mm.revert();
   }, []);

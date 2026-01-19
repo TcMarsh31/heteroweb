@@ -1,12 +1,14 @@
 // components/LandingSection.tsx
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Inquiry({
   title = "READY TO CREATE AN APP?",
   description = "Our team is ready to help you to find the optimal solution that will meet your specifications and achieve your business goals",
   isImageRight = false,
 }) {
+  const navigate = useRouter()
   return (
     // The main container with the purple background color
     <section className="relative bg-indigo-950 text-white p-8 md:p-16 overflow-hidden">
@@ -18,7 +20,9 @@ export default function Inquiry({
           {description}
         </h1>
         {/* The orange button using a custom background color utility */}
-        <Button className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-6 px-10 rounded-lg shadow-lg">
+        <Button
+          className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-6 px-10 rounded-lg shadow-lg"
+          onClick={() => navigate.push("/contact")}>
           SEND AN INQUIRY
         </Button>
       </div>

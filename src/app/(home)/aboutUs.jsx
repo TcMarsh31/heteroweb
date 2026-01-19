@@ -1,8 +1,10 @@
 // components/about-us-section.tsx (or similar file)
 import { Button } from "@/components/ui/button"; // Adjust import path if needed
-import React from "react";
+import { useRouter } from "next/navigation";
 
 const AboutUsSection = () => {
+  const navigate = useRouter()
+
   return (
     // The main container with a dark background and responsive padding
     <section className="bg-gray-900 py-20 md:py-32">
@@ -32,6 +34,7 @@ const AboutUsSection = () => {
               variant="default" // default is a shadcn/ui variant
               className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg"
               size="lg"
+              onClick={() => navigate.push("/projects")}
             >
               DISCOVER MORE
             </Button>
@@ -41,6 +44,7 @@ const AboutUsSection = () => {
               variant="outline" // outline is a shadcn/ui variant
               className="border-gray-500 text-gray-300 hover:bg-gray-700 hover:text-white font-bold py-3 px-8 rounded-lg"
               size="lg"
+              onClick={() => navigate.push("/contact")}
             >
               GET ON BOARD.
             </Button>

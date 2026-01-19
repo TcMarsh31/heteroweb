@@ -9,7 +9,7 @@ export default function Inquiry({
 }) {
   return (
     // The main container with the purple background color
-    <section className="relative bg-[#004F2D] text-white p-8 md:p-16 overflow-hidden">
+    <section className="relative bg-indigo-950 text-white p-8 md:p-16 overflow-hidden">
       <div className="max-w-4xl mx-auto z-10 relative">
         <p className="text-sm font-semibold uppercase tracking-wider mb-4 opacity-75">
           {title}

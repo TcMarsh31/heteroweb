@@ -11,8 +11,15 @@ import {
 export default function GrocXpress() {
   return (
     <div className="container mx-auto p-8">
+
+
+      {/* Hero Section */}
+      <h1 className="text-4xl font-bold mb-10">
+        GrocXpress – Mobile Grocery Shopping Application
+      </h1>
+
       {/* Top Section: Project Details */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12 text-sm text-gray-500">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6 text-sm text-gray-500">
         <div>
           <p className="font-semibold text-gray-700">Project</p>
           <p>Mobile + Web App</p>
@@ -37,11 +44,6 @@ export default function GrocXpress() {
           <p>Android, iOS, Web</p>
         </div>
       </div>
-
-      {/* Hero Section */}
-      <h1 className="text-4xl font-bold mb-6">
-        GrocXpress – Mobile Grocery Shopping Application
-      </h1>
 
       <Card className="mb-12 shadow-lg">
         <CardContent className="p-0">

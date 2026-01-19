@@ -7,11 +7,11 @@ const OurApproachSection = () => {
     <div className="py-16 px-4 md:px-8 max-w-4xl mx-auto">
       {/* Top section: Title and subtitle */}
       <div className="mb-12">
-        <p className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-2">
+        <p className="text-sm  uppercase tracking-wider text-blue-600 mb-2">
           OUR APPROACH
         </p>
         <p className="text-xl text-gray-800">
-          <span className="font-semibold">Passion drives us.</span> Reliability
+          <span >Passion drives us.</span> Reliability
           directs.
         </p>
       </div>

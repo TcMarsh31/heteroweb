@@ -11,7 +11,7 @@ export default function BlogPage() {
         "Imagine that you pour months of hard work and all your savings into building an app that's supposed to attract thousands of happy users and fill your account with millio...",
       authorName: "Michał Łobaza",
       authorTitle: "Project Manager",
-      imageUrl: "mobitouch.net",
+      imageUrl: "HeteroGenz.net",
       category: "Mobile Development",
     },
     {
@@ -21,7 +21,7 @@ export default function BlogPage() {
         "Launching an app requires more than design and development. It demands creative, relentless promotion. Even brilliant ideas get lost in the noise of the app stores...",
       authorName: "Kasia Sitarz",
       authorTitle: "Business Development Specialist",
-      imageUrl: "mobitouch.net",
+      imageUrl: "HeteroGenz.net",
       category: "Problems & costs",
     },
     {
@@ -32,7 +32,7 @@ export default function BlogPage() {
         "More than half of all online purchases today happen on smartphones. For small and mid-sized online stores, that's a big challenge: customers often forget about a shop after...",
       authorName: "Kasia Sitarz",
       authorTitle: "Business Development Specialist",
-      imageUrl: "mobitouch.net",
+      imageUrl: "HeteroGenz.net",
       category: "Web Development",
     },
   ];

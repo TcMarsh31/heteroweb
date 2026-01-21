@@ -40,7 +40,7 @@ const FeaturedProjectsSection = ({ isProjectPage = false }) => {
                 src="/img/grocxpress.png"
                 alt="GrocXpress App"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="p-6">
@@ -68,7 +68,7 @@ const FeaturedProjectsSection = ({ isProjectPage = false }) => {
                 src="/img/grocxpress.png"
                 alt="QuickTransfert App"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="p-6">

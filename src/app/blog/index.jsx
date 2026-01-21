@@ -9,7 +9,7 @@ function Blog() {
       {/* Hero Section */}
       <SecoundHero
         heading="The ultimate source of technology news"
-        subheading="We explore web and mobile technologies, product development and design, and the latest news from the tech industry. Get into the mobitouch mindset."
+        subheading="We explore web and mobile technologies, product development and design, and the latest news from the tech industry. Get into the HeteroGenz mindset."
       />
       <BlogLayout />
     </>

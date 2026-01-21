@@ -21,7 +21,7 @@ import Image from "next/image";
 // app/page.tsx
 const testimonials = [
   {
-    quote: "Mobitouch did an amazing job. I'm satisfied with the quality...",
+    quote: "HeteroGenz did an amazing job. I'm satisfied with the quality...",
     name: "Michał Kuriata",
     title: "IT Project Manager at Nowa Itaka sp. z o.o.",
     // companyLogo: "/path/to/itaka_logo.png", // Add logo path

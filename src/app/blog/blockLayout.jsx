@@ -52,7 +52,7 @@ export default function BlogLayout() {
         {/* Card 1: Application Testing */}
         <Card className="overflow-hidden shadow-lg">
           <img
-            src="mobitouch.net"
+            src="HeteroGenz.net"
             alt="Application testing"
             className="w-full h-48 object-cover"
           />
@@ -72,7 +72,7 @@ export default function BlogLayout() {
         {/* Card 2: Startup Idea Validation */}
         <Card className="overflow-hidden shadow-lg">
           <img
-            src="mobitouch.net"
+            src="HeteroGenz.net"
             alt="Startup Idea"
             className="w-full h-48 object-cover"
           />
@@ -92,7 +92,7 @@ export default function BlogLayout() {
         {/* Card 3: Mobile App Marketing */}
         <Card className="overflow-hidden shadow-lg">
           <img
-            src="mobitouch.net"
+            src="HeteroGenz.net"
             alt="App Marketing"
             className="w-full h-48 object-cover"
           />

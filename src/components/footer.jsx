@@ -86,8 +86,8 @@ function Footer() {
 
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center">
-            © 2023{" "}
-            <a href="https://HeteroGenz.com/" className="hover:underline">
+            © {new Date().getFullYear()}{" "}
+            <a href="#" className="hover:underline">
               HeteroGenz™
             </a>
             . All Rights Reserved.

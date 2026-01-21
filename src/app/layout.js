@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "GSAP Agency",
+  title: "HeteroGenz",
   description: "Creative agency powered by GSAP animations",
 };
 

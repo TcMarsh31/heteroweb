@@ -1,8 +1,8 @@
 import Home from "./(home)";
 
 export const metadata = {
-  title: "Home | GSAP Agency",
-  description: "Welcome to GSAP Agency",
+  title: "Home | HeteroGenz",
+  description: "Welcome to HeteroGenz",
 };
 
 export default function App() {

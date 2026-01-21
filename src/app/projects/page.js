@@ -2,7 +2,7 @@ import React from "react";
 import ProjectsLayout from ".";
 
 export const metadata = {
-  title: "Projects | GSAP Agency",
+  title: "Projects | HeteroGenz",
   description: "View our portfolio of projects",
 };
 

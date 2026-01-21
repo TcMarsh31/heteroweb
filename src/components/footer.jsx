@@ -6,11 +6,11 @@ function Footer() {
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" className="flex items-center">
+            <a href="https://HeteroGenz.com/" className="flex items-center">
               {/* <img
-                src="https://flowbite.com/docs/images/logo.svg"
+                src="https://HeteroGenz.com/docs/images/logo.svg"
                 className="h-7 me-3"
-                alt="FlowBite Logo"
+                alt="HeteroGenz Logo"
               /> */}
               <span className="self-center text-2xl font-semibold whitespace-nowrap">
                 HeteroGenz
@@ -25,7 +25,7 @@ function Footer() {
               </h2>
               <ul className="font-medium">
                 <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
+                  <a href="https://HeteroGenz.com/" className="hover:underline">
                     HeteroGenz
                   </a>
                 </li>
@@ -47,7 +47,7 @@ function Footer() {
               <ul className="font-medium">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/themesberg/flowbite"
+                    href="https://github.com/themesberg/HeteroGenz"
                     className="hover:underline"
                   >
                     Github
@@ -86,9 +86,9 @@ function Footer() {
 
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center">
-            © 2023{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
-              Flowbite™
+            © {new Date().getFullYear()}{" "}
+            <a href="#" className="hover:underline">
+              HeteroGenz™
             </a>
             . All Rights Reserved.
           </span>

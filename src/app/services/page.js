@@ -1,7 +1,7 @@
 import ServicesLayout from ".";
 
 export const metadata = {
-  title: "Services | GSAP Agency",
+  title: "Services | HeteroGenz",
   description: "Explore our services",
 };
 
